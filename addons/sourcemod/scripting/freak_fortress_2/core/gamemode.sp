@@ -1232,7 +1232,7 @@ void Gamemode_PlayerRunCmd(int client, int buttons)
 			if(PlayersAlive[team] < 3)
 			{
 				TFClassType class = TF2_GetPlayerClass(client);
-				TF2Tools_AddCondition(client, (class == TFClass_Scout || class == TFClass_Heavy) ? TFCond_Buffed : TFCond_CritCola, 0.5);
+				TF2Tools_AddCondition(client, (class == TFClass_Scout || class == TFClass_Heavy || class == TFClass_Sniper) ? TFCond_Buffed : TFCond_CritCola, 0.5);
 			}
 			
 			if(PlayersAlive[team] < 2) 
