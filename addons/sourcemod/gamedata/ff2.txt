@@ -6,7 +6,6 @@
 		{
 			"Use_WaitingForPlayers"	"yes"
 			"Use_WeaponPickups"		"yes"
-			"ScriptDataFolder"		"scriptdata"
 		}
 		"Signatures"
 		{
@@ -271,7 +270,6 @@
 		{
 			"Use_WaitingForPlayers"	"no"
 			"Use_WeaponPickups"		"no"
-			"ScriptDataFolder"		"vscript_io"
 		}
 		"Signatures"
 		{
