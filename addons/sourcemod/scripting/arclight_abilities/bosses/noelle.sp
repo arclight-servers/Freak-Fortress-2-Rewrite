@@ -1161,7 +1161,7 @@ void Noelle_AliveChanged()
 	{
 		case 0:
 		{
-			if(alive <= (total / 2))// && total > (SnowGraveRequire > 0.1 ? 7 : 1))
+			if(alive <= (total / 2))//&& total > (SnowGraveRequire > 0.1 ? 7 : 1))
 			{
 				WeirdState = 1;
 				ColdTimer = CreateTimer(0.75, BreathTimer, _, TIMER_REPEAT);
@@ -1172,7 +1172,7 @@ void Noelle_AliveChanged()
 		}
 		case 1:
 		{
-			if(alive == 1)// && total > (SnowGraveRequire > 0.1 ? 15 : 1))
+			if(alive == 1)//&& total > (SnowGraveRequire > 0.1 ? 15 : 1))
 			{
 				WeirdState = 2;
 
