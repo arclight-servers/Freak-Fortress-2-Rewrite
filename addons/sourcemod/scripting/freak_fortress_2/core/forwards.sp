@@ -86,7 +86,7 @@ void Forward_OnAbility(int client, const char[] ability, ConfigMap cfg, const ch
 		if(plugin[0])
 			return;
 	}
-
+/*
 	if(plugin[0])
 	{
 		char buffer[PLATFORM_MAX_PATH];
@@ -128,7 +128,7 @@ void Forward_OnAbility(int client, const char[] ability, ConfigMap cfg, const ch
 		if(Client(client).Cfg.Get("filename", buffer, sizeof(buffer)))
 			LogError("[Boss] Plugin '%s' is missing for '%s' '%s'", plugin, buffer, ability);
 	}
-	
+*/
 	Call_StartForward(AbilityAll);
 	Call_PushCell(client);
 	Call_PushString(ability);
