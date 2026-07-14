@@ -150,7 +150,7 @@ void Music_PlayNextSong(int client = 0)
 		{
 			DeniedByFileNet[client] = false;
 
-			if(!Client(client).IsBoss || !ForwardOld_OnMusicPerBoss(client) || !Bosses_PlaySoundToClient(client, client, "sound_bgm"))
+			if(!Client(client).IsBoss || !Bosses_PlaySoundToClient(client, client, "sound_bgm"))
 			{
 				for(int i; i < MaxClients; i++)
 				{
@@ -576,7 +576,7 @@ static void PlaylistMenu(int client, int page = 0)
 	if(Client(client).IsBoss)
 		Client(client).Cfg.GetInt("special", special1);
 	
-	if(special1 == -1 || !ForwardOld_OnMusicPerBoss(client))
+	if(special1 == -1)
 	{
 		for(int i; i < MaxClients; i++)
 		{

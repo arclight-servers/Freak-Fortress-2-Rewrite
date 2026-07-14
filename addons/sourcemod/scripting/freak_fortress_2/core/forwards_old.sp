@@ -13,7 +13,6 @@ static GlobalForward OnLoseLife;
 static GlobalForward OnAlivePlayersChanged;
 static GlobalForward OnBackstabbed;
 static GlobalForward OnMusicEx;
-static GlobalForward OnMusicPerBoss;
 
 void ForwardOld_PluginLoad()
 {
@@ -28,7 +27,6 @@ void ForwardOld_PluginLoad()
 	OnLoseLife = new GlobalForward("FF2_OnLoseLife", ET_Hook, Param_Cell, Param_CellByRef, Param_Cell);
 	OnAlivePlayersChanged = new GlobalForward("FF2_OnAlivePlayersChanged", ET_Hook, Param_Cell, Param_Cell);
 	OnBackstabbed = new GlobalForward("FF2_OnBackStabbed", ET_Hook, Param_Cell, Param_Cell, Param_Cell);
-	OnMusicPerBoss = new GlobalForward("FF2_OnMusicPerBoss", ET_Single, Param_Cell);	// From DISC-FF Boss vs Boss
 	OnMusicEx = new GlobalForward("FF2_OnMusicEx", ET_Hook, Param_String, Param_FloatByRef, Param_Cell);	// From Versus Ponyville Reborn
 }
 
@@ -247,14 +245,4 @@ Action ForwardOld_OnBackstabbed(int client, int attacker)
 	Call_PushCell(attacker);
 	Call_Finish(action);
 	return action;
-}
-
-bool ForwardOld_OnMusicPerBoss(int client)
-{
-	bool result = true;
-	Call_StartForward(OnMusicPerBoss);
-	Call_PushCell(Client(client).Index);
-	Call_Finish(result);
-	Debug("ForwardOld_OnMusicPerBoss::%d", result);
-	return result;
 }
