@@ -1,7 +1,7 @@
 #include <sourcemod>
 #include <sdkhooks>
 #include <tf2_stocks>
-//#include <dhooks>
+#include <dhooks>
 #include <tf_econ_data>
 #include <tf_econ_dynamic>
 #include <adt_trie_sort>
@@ -44,8 +44,8 @@ ConVar CvarFriendlyFire;
 
 #include "arclight_abilities/stocks.sp"
 #include "arclight_abilities/customattrib.sp"
-//#include "arclight_abilities/custommelee.sp"
-//#include "arclight_abilities/dhooks.sp"
+#include "arclight_abilities/custommelee.sp"
+#include "arclight_abilities/dhooks.sp"
 #include "arclight_abilities/sdkcalls.sp"
 #include "arclight_abilities/sdkhooks.sp"
 #include "arclight_abilities/vscript.sp"

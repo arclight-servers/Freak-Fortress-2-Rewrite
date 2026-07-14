@@ -79,8 +79,8 @@ void CustomMelee_DoSwingTracePost(int weapon, bool hit)
 {
 	if(MeleeSavedData.ContainsKey(weapon))
 	{
-		Attrib_Set(weapon, "melee bounds multiplier", 0.0);
-		Attrib_Set(weapon, "melee range multiplier", 0.0);
+		Attrib_Set(weapon, "melee bounds multiplier", 263, 0.0);
+		Attrib_Set(weapon, "melee range multiplier", 264, 0.0);
 		
 		if(hit)
 		{
@@ -101,8 +101,8 @@ static void SaveMeleeData(int weapon)
 {
 	float bounds = 1.0;
 	float range = 1.0;
-	Attrib_Get(weapon, "melee bounds multiplier", bounds);
-	Attrib_Get(weapon, "melee range multiplier", range);
+	Attrib_Get(weapon, "melee bounds multiplier", 263, bounds);
+	Attrib_Get(weapon, "melee range multiplier", 264, range);
 
 	if(bounds > 0.0 || range > 0.0 || !MeleeSavedData.ContainsKey(weapon))
 	{
@@ -115,8 +115,8 @@ static void SaveMeleeData(int weapon)
 		MeleeSavedData.SetArray(weapon, data, sizeof(data));
 	}
 
-	Attrib_Set(weapon, "melee bounds multiplier", 0.0);
-	Attrib_Set(weapon, "melee range multiplier", 0.0);
+	Attrib_Set(weapon, "melee bounds multiplier", 263, 0.0);
+	Attrib_Set(weapon, "melee range multiplier", 264, 0.0);
 }
 
 static void RestoreMeleeData(int weapon)
@@ -125,9 +125,9 @@ static void RestoreMeleeData(int weapon)
 	if(MeleeSavedData.GetArray(weapon, data, sizeof(data)))
 	{
 		if(data.MeleeBounds > 0.0)
-			Attrib_Set(weapon, "melee bounds multiplier", data.MeleeBounds);
+			Attrib_Set(weapon, "melee bounds multiplier", 263, data.MeleeBounds);
 		
 		if(data.MeleeRange > 0.0)
-			Attrib_Set(weapon, "melee range multiplier", data.MeleeRange);
+			Attrib_Set(weapon, "melee range multiplier", 264, data.MeleeRange);
 	}
 }

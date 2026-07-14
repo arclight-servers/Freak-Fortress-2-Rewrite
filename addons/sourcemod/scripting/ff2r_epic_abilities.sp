@@ -131,7 +131,7 @@
 #include <sourcemod>
 #include <sdkhooks>
 #include <tf2_stocks>
-//#include <dhooks>
+#include <dhooks>
 #include <adt_trie_sort>
 #include <cfgmap>
 #include <tf_econ_data>
@@ -357,7 +357,7 @@ public void OnPluginStart()
 			LogError("[Gamedata] Could not find CTFPlayer::TeamFortress_SetSpeed");
 	}
 	
-	//CreateDetour(gamedata, "CTFPlayer::CanAirDash", CanAirDashPre, CanAirDashPost);
+	CreateDetour(gamedata, "CTFPlayer::CanAirDash", CanAirDashPre, CanAirDashPost);
 	
 	delete gamedata;
 	
@@ -381,7 +381,7 @@ public void OnPluginStart()
 
 	Subplugin_PluginStart();
 }
-/*
+
 void CreateDetour(GameData gamedata, const char[] name, DHookCallback preCallback = INVALID_FUNCTION, DHookCallback postCallback = INVALID_FUNCTION)
 {
 #if defined CHECK_DETOUR_CRASHES
@@ -412,7 +412,7 @@ void CreateDetour(GameData gamedata, const char[] name, DHookCallback preCallbac
 		LogError("[Gamedata] Could not find %s", name);
 	}
 }
-*/
+
 void FF2R_PluginLoaded()
 {
 	CvarDebug = FindConVar("ff2_debug");
@@ -1767,7 +1767,7 @@ Action FirstPersonTransmit(int entity, int client)
 	}
 	return Plugin_Continue;
 }
-/*
+
 public MRESReturn CanAirDashPre(int client, DHookReturn ret)
 {
 	if(WallJumper[client] && WallLagComped[client])
@@ -1790,7 +1790,7 @@ public MRESReturn CanAirDashPost(int client, DHookReturn ret)
 	}
 	return MRES_Ignored;
 }
-*/
+
 bool PickupWeaponEntity(int client, int weapon)
 {
 	if(!CanPickup[client] || !ClassSwap[client])
@@ -2468,7 +2468,7 @@ void StealFromBoss(int victim, int attacker)
 	TF2_RegeneratePlayer(attacker);
 }
 
-stock void RegenerateSupply(int client)
+void RegenerateSupply(int client)
 {
 	SetHealthTo[client] = GetClientHealth(client);
 	TF2_RegeneratePlayer(client);
@@ -2652,7 +2652,7 @@ void CheckRazorbackHooks()
 	HookedRazorback = false;
 }
 
-stock bool JumperTestJump(int client, bool success)
+bool JumperTestJump(int client, bool success)
 {
 	BossData boss = FF2R_GetBossData(client);
 	AbilityData ability;
