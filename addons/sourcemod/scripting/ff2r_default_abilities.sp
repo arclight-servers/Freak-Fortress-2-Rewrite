@@ -316,8 +316,8 @@
 	{
 		"slot"			"2"			// Charge slot (Only used for sound_ability)
 		"delay"			"3.0"		// Airtime before being able to use
-		"gravity"		"6.0"		// Weighdown gravity
-		"velocity"		"1000.0"	// Downward velocity
+		"gravity"		"8.0"		// Weighdown gravity multiplier
+		"velocity"		"0.0"		// Instant downward velocity on activation
 		
 		"plugin_name"	"ff2r_default_abilities"
 	}
@@ -1032,6 +1032,11 @@ public void OnPlayerRunCmdPost(int client, int buttons, int impulse, const float
 							SetEntityFlags(client, GetEntityFlags(client) & ~FL_ONGROUND);
 							SetEntProp(client, Prop_Send, "m_bJumping", true);
 
+							// Allow weighdown immediately after a super jump
+							BossData wdBoss = FF2R_GetBossData(client);
+							if(wdBoss && wdBoss.GetAbility("special_weighdown").IsMyPlugin())
+								WeighdownAirTimeAt[client] = GetGameTime();
+
 							SDKCall_SetJumpBlastState(client, TF_PLAYER_ENEMY_BLASTED_ME);
 							
 							if(ability.GetString("slot", buffer, sizeof(buffer)))
@@ -1184,14 +1189,18 @@ public void OnPlayerRunCmdPost(int client, int buttons, int impulse, const float
 			{
 				WeighdownAirTimeAt[client] = FAR_FUTURE;
 				WeighdownLastGravity[client] = GetEntityGravity(client);
-				WeighdownCurrentGravity[client] = ability.GetFloat("gravity", 6.0);
+				WeighdownCurrentGravity[client] = ability.GetFloat("gravity", 8.0);
 				
 				SetEntityGravity(client, WeighdownCurrentGravity[client]);
 				
-				float velocity[3];
-				GetEntPropVector(client, Prop_Data, "m_vecVelocity", velocity);
-				velocity[2] = -ability.GetFloat("velocity", 1000.0);
-				TeleportEntity(client, _, _, velocity);
+				float velo = ability.GetFloat("velocity", 0.0);
+				if(velo > 0.0)
+				{
+					float velocity[3];
+					GetEntPropVector(client, Prop_Data, "m_vecVelocity", velocity);
+					velocity[2] = -velo;
+					TeleportEntity(client, _, _, velocity);
+				}
 			}
 			else
 			{
