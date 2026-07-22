@@ -316,8 +316,9 @@
 	{
 		"slot"			"2"			// Charge slot (Only used for sound_ability)
 		"delay"			"3.0"		// Airtime before being able to use
-		"gravity"		"8.0"		// Weighdown gravity multiplier
-		"velocity"		"0.0"		// Instant downward velocity on activation
+		"jump delay"	"1.0"		// Airtime required after a super jump before being able to use
+		"gravity"		"8.0"		// Weighdown gravity
+		"velocity"		"0.0"		// Downward velocity
 		
 		"plugin_name"	"ff2r_default_abilities"
 	}
@@ -1032,10 +1033,10 @@ public void OnPlayerRunCmdPost(int client, int buttons, int impulse, const float
 							SetEntityFlags(client, GetEntityFlags(client) & ~FL_ONGROUND);
 							SetEntProp(client, Prop_Send, "m_bJumping", true);
 
-							// Allow weighdown immediately after a super jump
 							BossData wdBoss = FF2R_GetBossData(client);
-							if(wdBoss && wdBoss.GetAbility("special_weighdown").IsMyPlugin())
-								WeighdownAirTimeAt[client] = GetGameTime();
+							AbilityData wdAbility;
+							if(wdBoss && (wdAbility = wdBoss.GetAbility("special_weighdown")) && wdAbility.IsMyPlugin())
+								WeighdownAirTimeAt[client] = GetGameTime() + wdAbility.GetFloat("jump delay", 1.0);
 
 							SDKCall_SetJumpBlastState(client, TF_PLAYER_ENEMY_BLASTED_ME);
 							
