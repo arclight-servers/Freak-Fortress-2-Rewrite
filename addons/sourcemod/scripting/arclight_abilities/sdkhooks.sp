@@ -153,7 +153,7 @@ public Action TF2_OnTakeDamage(int victim, int &attacker, int &inflictor, float 
 		}
 	}
 
-	UpdateAction(action, CustomAttrib_PlayerTakeDamage(victim, attacker, inflictor, damage, damagetype, weapon, critType));
+	UpdateAction(action, CustomAttrib_PlayerTakeDamage(victim, attacker, inflictor, damage, damagetype, weapon, damagecustom, critType));
 	UpdateAction(action, Announcer_PlayerTakeDamage(victim, attacker, damage));
 	UpdateAction(action, Gordon_TakeDamage(victim, attacker, inflictor, damage, damagetype));
 	UpdateAction(action, Sarysapub1_TakeDamage(victim, attacker, inflictor, damage, damagetype));

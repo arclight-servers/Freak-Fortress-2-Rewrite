@@ -49,6 +49,12 @@ void CustomAttrib_AllPluginsLoaded()
 	attrib.SetCustom("description_ff2_string", "On Hit: Ignites target for %s seconds");
 	attrib.Register();
 
+	attrib.SetName("speed boost on headshot");
+	attrib.SetClass("arclight.speedboostheadshot");
+	attrib.SetDescriptionFormat("additive");
+	attrib.SetCustom("description_ff2_string", "On Headshot: Gain %s seconds of speed boost");
+	attrib.Register();
+
 	attrib.SetName("wall climb");
 	attrib.SetClass("arclight.wallclimbhealth");
 	attrib.SetDescriptionFormat("additive");
@@ -138,7 +144,7 @@ void CustomAttrib_AllPluginsLoaded()
 	delete attrib;
 }
 
-stock Action CustomAttrib_PlayerTakeDamage(int victim, int &attacker, int &inflictor, float &damage, int &damagetype, int &weapon, CritType &critType)
+stock Action CustomAttrib_PlayerTakeDamage(int victim, int &attacker, int &inflictor, float &damage, int &damagetype, int &weapon, int damagecustom, CritType &critType)
 {
 	Action action;
 
@@ -173,6 +179,9 @@ stock Action CustomAttrib_PlayerTakeDamage(int victim, int &attacker, int &infli
 
 			if(Attrib_Get(weapon, "heal on any hit", _, value))
 				SetEntityHealth(attacker, GetClientHealth(attacker) + RoundFloat(value));
+
+			if(damagecustom == TF_CUSTOM_HEADSHOT && Attrib_Get(weapon, "speed boost on headshot", _, value) && !IsInvuln(victim))
+				TF2_AddCondition(attacker, TFCond_SpeedBuffAlly, value);
 		}
 
 		if(Attrib_Get(weapon, "add damagetype", _, value))
