@@ -422,7 +422,7 @@ static Action Gamemode_IntroTimer(Handle timer)
 					if(boss != -1 && GetClientTeam(boss) != team && (Bosses_PlaySoundToClient(boss, client, "sound_intro", .volume = SNDVOL_BOSS) || Bosses_PlaySoundToClient(boss, client, "sound_begin", .volume = SNDVOL_BOSS)))
 						break;
 				}
-
+				
 				if(i == MaxClients)
 				{
 					int boss = FindClientOfBossIndex(0);

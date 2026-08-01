@@ -2138,6 +2138,7 @@ void Bosses_SetSpeed(int client)
 		{
 			// Get the slowest class, eg. lastman scout will speed up the boss
 			
+			float ceiling = maxspeed + 70.0;
 			float lowest = maxspeed + 140.0;
 			int team = GetClientTeam(client);
 			for(int target = 1; target <= MaxClients; target++)
@@ -2153,8 +2154,8 @@ void Bosses_SetSpeed(int client)
 			if(lowest > speed)
 			{
 				speed = lowest;
-				if(speed > maxspeed)
-					speed = maxspeed;
+				if(speed > ceiling)
+					speed = ceiling;
 			}
 		}
 		
