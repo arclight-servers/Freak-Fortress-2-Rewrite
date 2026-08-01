@@ -206,5 +206,5 @@ static void OnRuneSpawnPost(int entity)
 
 static Action HookSound(int clients[MAXPLAYERS], int &numClients, char sample[256], int &entity, int &channel, float &volume, int &level, int &pitch, int &flags, char soundEntry[256], int &seed)
 {
-	return Plugin_Continue;//CustomMelee_HookSound(clients, numClients, entity, channel);
+	return CustomMelee_HookSound(clients, numClients, entity, channel);
 }
