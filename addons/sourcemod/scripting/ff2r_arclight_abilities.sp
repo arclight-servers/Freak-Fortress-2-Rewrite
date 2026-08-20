@@ -44,8 +44,8 @@ ConVar CvarFriendlyFire;
 
 #include "arclight_abilities/stocks.sp"
 #include "arclight_abilities/customattrib.sp"
-#include "arclight_abilities/custommelee.sp"
-#include "arclight_abilities/dhooks.sp"
+//#include "arclight_abilities/custommelee.sp"
+//#include "arclight_abilities/dhooks.sp"
 #include "arclight_abilities/sdkcalls.sp"
 #include "arclight_abilities/sdkhooks.sp"
 #include "arclight_abilities/vscript.sp"
@@ -114,7 +114,7 @@ public void OnPluginStart()
 
 	// Arclight Files
 	ArclightVScript_PluginStart();
-	DHooks_PluginStart();
+//	DHooks_PluginStart();
 	Noelle_PluginStart();
 	SDKCalls_PluginStart();
 	SDKHook_PluginStart();
@@ -150,7 +150,7 @@ void FF2R_PluginLoaded()
 
 public void OnPluginEnd()
 {
-	CustomMelee_PluginEnd();
+//	CustomMelee_PluginEnd();
 	Noelle_PluginEnd();
 	Sarysapub1_PluginEnd();
 	OnMapEnd();
@@ -168,7 +168,7 @@ public void OnPluginEnd()
 
 public void OnMapStart()
 {
-	CustomMelee_MapStart();
+//	CustomMelee_MapStart();
 	Goomba_MapStart();
 	Gordon_MapStart();
 	Heffe_MapStart();
@@ -248,13 +248,13 @@ public void OnEntityCreated(int entity, const char[] classname)
 
 public void OnEntityDestroyed(int entity)
 {
-	CustomMelee_EntityRemoved(entity);
+//	CustomMelee_EntityRemoved(entity);
 }
 
 public Action TF2_CalcIsAttackCritical(int client, int weapon, char[] weaponname, bool &result)
 {
 	CustomAttrib_CalcIsAttackCritical(client, weapon);
-	CustomMelee_CalcIsAttackCritical(weapon, weaponname);
+//	CustomMelee_CalcIsAttackCritical(weapon, weaponname);
 	Gordon_CalcIsAttackCritical(client);
 	return Plugin_Continue;
 }

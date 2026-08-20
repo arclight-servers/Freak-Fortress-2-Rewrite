@@ -20,7 +20,7 @@ static bool WasHandScaled[MAXTF2PLAYERS];
 void SDKHook_PluginStart()
 {
 	OTDLoaded = LibraryExists(OTD_LIBRARY);
-	AddNormalSoundHook(HookSound);
+//	AddNormalSoundHook(HookSound);
 }
 
 void SDKHook_LibraryAdded(const char[] name)
@@ -204,7 +204,7 @@ static void OnRuneSpawnPost(int entity)
 	RemoveEntity(entity);
 }
 
-static Action HookSound(int clients[MAXPLAYERS], int &numClients, char sample[256], int &entity, int &channel, float &volume, int &level, int &pitch, int &flags, char soundEntry[256], int &seed)
+/*static Action HookSound(int clients[MAXPLAYERS], int &numClients, char sample[256], int &entity, int &channel, float &volume, int &level, int &pitch, int &flags, char soundEntry[256], int &seed)
 {
 	return CustomMelee_HookSound(clients, numClients, entity, channel);
-}
+}*/
