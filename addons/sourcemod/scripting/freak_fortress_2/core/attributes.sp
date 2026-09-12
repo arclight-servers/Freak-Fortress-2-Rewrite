@@ -494,7 +494,9 @@ void Attributes_OnHitBoss(int attacker, int victim, int inflictor, float fdamage
 		
 		if(weapon != -1 && Attrib_FindOnWeapon(attacker, weapon, "honorbound", 226))
 		{
-			SetEntProp(weapon, Prop_Send, "m_bIsBloody", true);
+			if(HasEntProp(weapon, Prop_Send, "m_bIsBloody"))
+				SetEntProp(weapon, Prop_Send, "m_bIsBloody", true);
+
 			SetEntProp(attacker, Prop_Send, "m_iKillCountSinceLastDeploy", GetEntProp(attacker, Prop_Send, "m_iKillCountSinceLastDeploy")+1);
 		}
 		
