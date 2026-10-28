@@ -351,7 +351,7 @@ public Action TF2_OnTakeDamage(int victim, int &attacker, int &inflictor, float 
 		{
 			bool changed;
 			bool melee = ((damagetype & DMG_CLUB) || (damagetype & DMG_SLASH)) && damagecustom != TF_CUSTOM_BASEBALL;
-			if(melee && SDKCall_CheckBlockBackstab(victim, attacker))
+			if((melee || damagecustom == TF_CUSTOM_BACKSTAB) && SDKCall_CheckBlockBackstab(victim, attacker))
 			{
 				if(TF2_IsPlayerInCondition(victim, TFCond_RuneResist))
 					TF2Tools_RemoveCondition(victim, TFCond_RuneResist);
