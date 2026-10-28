@@ -159,7 +159,7 @@ void Weapons_ShowChanges(int client, int entity)
 		}
 	}
 
-	char value[16];
+	char value[128];
 	char desc[64];
 	char type[64];
 
@@ -265,7 +265,7 @@ void Weapons_ShowChanges(int client, int entity)
 	}
 }
 
-static void PrintThisAttrib(int client, int attrib, char value[16], char type[64], char desc[64], char buffer2[64], char[] key, int length)
+static void PrintThisAttrib(int client, int attrib, char value[128], char type[64], char desc[64], char buffer2[64], char[] key, int length)
 {
 	// Not a "removed" attribute
 	if(value[0] != 'R')
