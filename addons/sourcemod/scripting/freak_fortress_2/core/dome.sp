@@ -286,6 +286,12 @@ void Dome_SetTeam(int team)
 		DomePlayerTime[client] = 0.0;
 }
 
+void Dome_PlayerSpawn(int client)
+{
+	if(!Client(client).IsBoss)
+		DomePlayerTime[client] = 0.0;
+}
+
 static void Dome_Frame_Prepare()
 {
 	if(DomeStart == 0.0)
@@ -435,10 +441,17 @@ static Action Dome_TimerBleed(Handle timer)
 			if(DomePlayerOutside[client])
 			{
 				//Calculate damage, the longer the player is outside of the dome, the more damage it deals
-				float fdamage = Pow(2.0, DomePlayerTime[client]);
-				
-				if((Client(client).IsBoss || Client(client).MinionType) && fdamage < 65.0)
-					fdamage = 65.0;
+				float fdamage;
+				if(Client(client).IsBoss || Client(client).MinionType)
+				{
+					fdamage = Pow(2.0, DomePlayerTime[client]);
+					if(fdamage < 65.0)
+						fdamage = 65.0;
+				}
+				else
+				{
+					fdamage = Pow(2.0, DomePlayerTime[client] / Cvar[CaptureDomeMercRamp].FloatValue);
+				}
 				
 				//Deal damage
 				float health = float(GetClientHealth(client));

@@ -114,6 +114,7 @@ enum
 	CaptureDomeTime,
 	CaptureDomeStyle,
 	CaptureDomeRadius,
+	CaptureDomeMercRamp,
 	HealthBar,
 	RefreshDmg,
 	RefreshTime,

@@ -293,6 +293,9 @@ static void Events_PlayerSpawn(Event event, const char[] name, bool dontBroadcas
 		SetEntProp(client, Prop_Send, "m_nModelIndexOverrides", 0, _, 3);
 	}
 	
+	if(client)
+		Dome_PlayerSpawn(client);
+	
 	Events_CheckAlivePlayers();
 }
 

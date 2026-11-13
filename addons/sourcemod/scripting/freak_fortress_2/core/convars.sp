@@ -50,6 +50,7 @@ void ConVar_PluginStart()
 	Cvar[CaptureDomeTime] = CreateConVar("ff2_game_capture_dome_time", "15.0", "Override control point capture time, 0 for map default", _, true, 0.0);
 	Cvar[CaptureDomeStyle] = CreateConVar("ff2_game_capture_dome_style", "2", "0 = Control point gains ownership of the dome, 1 = Default control point logic, 2 = Disable control point and dynamic dome center is created", _, true, 0.0, true, 2.0);
 	Cvar[CaptureDomeRadius] = CreateConVar("ff2_game_capture_dome_radius", "0.0", "How much radius of dome closes in. 0 for default", _, true, 0.0);
+	Cvar[CaptureDomeMercRamp] = CreateConVar("ff2_game_capture_dome_merc_ramp", "4.0", "Seconds a non-boss player must spend outside of the dome for its damage to double, bosses and minions always double every second", _, true, 0.5);
 	Cvar[BossTeam] = CreateConVar("ff2_game_bossteam", "3", "Default team to use for bosses, 2 = RED, 3 = BLU", _, true, 2.0, true, float(TFTeam_MAX - 1));
 	Cvar[MusicPlaylist] = CreateConVar("ff2_game_playlist", "0", "If to allow players to select any boss theme to listen to", _, true, 0.0, true, 1.0);
 	Cvar[RaidChance] = CreateConVar("ff2_game_raids", "0.02", "Chance that a raid boss will be selected instead of a standard boss", _, true, 0.0, true, 1.0);
