@@ -305,7 +305,7 @@ void Noelle_BossCreated(int client, BossData boss, bool setup)
 		{
 			GrazeCount[client] = 0;
 			GrazeBaseRage[client] = ability.GetFloat("graze_base", 0.05);
-			GrazeBaseAdd[client] = ability.GetFloat("graze_base", 0.01);
+			GrazeBaseAdd[client] = ability.GetFloat("graze_add", 0.01);
 			
 			size = ability.GetFloat("graze_size", 80.0);
 			if(size)
@@ -645,7 +645,7 @@ void Noelle_PlayerRunCmdPost(int client, int buttons)
 					TF2_AddCondition(client, TFCond_Sapped, duration);
 					int weapon = GetEntPropEnt(client, Prop_Send, "m_hActiveWeapon");
 					if(weapon != -1)
-						SetEntPropFloat(weapon, Prop_Send, "m_flNextPrimaryAttack", GetGameTime() + 8.0);
+						SetEntPropFloat(weapon, Prop_Send, "m_flNextPrimaryAttack", GetGameTime() + duration);
 					
 					float maxrage = boss.RageMax;
 					if(rage < maxrage)
@@ -1980,13 +1980,15 @@ static void HealPrayer(int client, AbilityData ability)
 	health += amount;
 	if(maxhealth && health > maxhealth)
 	{
-		amount = health - maxhealth;
+		amount -= health - maxhealth;
 		health = maxhealth;
 	}
 
 	SetEntityHealth(client, health);
 	FF2R_UpdateBossAttributes(client);
-	ApplySelfHealEvent(client, amount);
+
+	if(amount > 0)
+		ApplySelfHealEvent(client, amount);
 }
 
 static void SnowGraveStart(int iClient, AbilityData ability)
