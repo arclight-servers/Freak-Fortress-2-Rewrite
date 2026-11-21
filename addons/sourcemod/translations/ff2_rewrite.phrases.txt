@@ -1003,7 +1003,7 @@
 	"mod crit type glow"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"100%% critical hit"
+		"en"		"100%% mini-crits"
 	}
 	"mod crit type on bosses"
 	{
@@ -1018,17 +1018,17 @@
 	"primary ammo from damage"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"Gains ammo for every {4} damage dealt to a boss"
+		"en"		"+1 primary ammo per {4} damage dealt to bosses"
 	}
 	"secondary ammo from damage"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"Gains ammo for every {4} damage dealt to a boss"
+		"en"		"+1 secondary ammo per {4} damage dealt to bosses"
 	}
 	"multi boss rage"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"Decreases rage gained by bosses by {2}%%"
+		"en"		"Bosses gain {2}%% less rage from this weapon"
 	}
 	"backstab damage percent"
 	{
@@ -1038,7 +1038,7 @@
 	"mod airblast stale"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"Successive airblasts on a boss increases airblast cooldown"
+		"en"		"Successive airblasts on a boss increase airblast cooldown"
 	}
 	"mod airblast rage"
 	{
@@ -1048,17 +1048,17 @@
 	"mod fire rate hit stale"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"Successive hits on a boss decreases fire rate by {3}%%"
+		"en"		"{3}%% slower firing speed per hit on a boss"
 	}
 	"mod reload time hit stale"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"Successive hits on a boss increases reload time by {3}%%"
+		"en"		"Successive hits on a boss increase reload time by {3}%%"
 	}
 	"mod recharge time hit stale"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"Successive hits on a boss increases recharge time by {3}%%"
+		"en"		"Successive hits on a boss increase recharge time by {3}%%"
 	}
 	"mod stun boss on hit"
 	{
@@ -1098,7 +1098,7 @@
 	"hit stale DISPLAY ONLY"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"Successive hits on a boss increases reload time"
+		"en"		"Successive hits on a boss increase reload time"
 	}
 	"sentry death DISPLAY ONLY"
 	{
@@ -1113,7 +1113,7 @@
 	"boost limit DISPLAY ONLY"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"Successive hits on a boss decreases boost over time"
+		"en"		"Successive hits on a boss decrease boost over time"
 	}
 	"teleport no spawn DISPLAY ONLY"
 	{
@@ -1123,7 +1123,7 @@
 	"vaccinator DISPLAY ONLY"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"Resistances effect boss melee hits"
+		"en"		"Resistances also reduce boss melee damage by 10%%, or 50%% and no crits when ÜberCharged"
 	}
 	"cloak on hit DISPLAY ONLY"
 	{
@@ -1143,12 +1143,12 @@
 	"caber boss crit DISPLAY ONLY"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"100%% critical hit vs bosses on detonation"
+		"en"		"100%% critical hit vs bosses on first hit"
 	}
 	"start with uber DISPLAY ONLY"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"Start the round with full organ count"
+		"en"		"Start the round with 60%% ÜberCharge"
 	}
 	"mark limit DISPLAY ONLY"
 	{
@@ -1163,7 +1163,7 @@
 	"resist effects stuns DISPLAY ONLY"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"Ranged resistances effect boss stun duration (x{4})"
+		"en"		"Ranged resistances affect boss stun duration (x{4})"
 	}
 	"kill effects boss hits DISPLAY ONLY"
 	{
@@ -1173,7 +1173,7 @@
 	"backstabs DISPLAY ONLY"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"Backstabs deal a large amount of damage to a boss"
+		"en"		"Backstabs deal up to {4} damage to a boss, less on repeated stabs"
 	}
 	"disguise resistance DISPLAY ONLY"
 	{
@@ -1183,11 +1183,21 @@
 	"sapper boss effect DISPLAY ONLY"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"Can be applied to a boss to reduce their damage for a short time"
+		"en"		"Sapping a boss reduces their damage by {2}%% for 4 seconds"
 	}
 	"dmg taken from fall reduced"
 	{
 		"#format" 	"{1:s},{2:s},{3:s},{4:s}"
 		"en"		"{1}%% fall damage reduction"
+	}
+	"banner rocket barrage"
+	{
+		"#format"	"{1:s},{2:s},{3:s},{4:s}"
+		"en"		"On Use: +{4} loaded rockets and faster firing for 5 seconds"
+	}
+	"banner speed ammo"
+	{
+		"#format"	"{1:s},{2:s},{3:s},{4:s}"
+		"en"		"On Use: +{1}%% faster move speed and full ammo regen for 10 seconds"
 	}
 }

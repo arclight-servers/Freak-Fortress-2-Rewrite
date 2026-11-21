@@ -16,19 +16,19 @@ void CustomAttrib_AllPluginsLoaded()
 	attrib.SetName("banner rocket barrage");
 	attrib.SetClass("arclight.bannerbarrage");
 	attrib.SetDescriptionFormat("additive");
-	attrib.SetCustom("description_ff2_string", "Barrage of %s rockets on use");
+	attrib.SetCustom("description_ff2_string", "banner rocket barrage");
 	attrib.Register();
 
 	attrib.SetName("banner zombie summon");
 	attrib.SetClass("arclight.bannersummon");
 	attrib.SetDescriptionFormat("additive");
-	attrib.SetCustom("description_ff2_string", "Spawns up to %s Zombie Scouts on use");
+	attrib.SetCustom("description_ff2_string", "On Use: Revive up to %s teammates as Zombie Scouts");
 	attrib.Register();
 
 	attrib.SetName("banner speed ammo");
 	attrib.SetClass("arclight.bannerspeedammo");
 	attrib.SetDescriptionFormat("precentage");
-	attrib.SetCustom("description_ff2_string", "x%s movement speed and ammo regen on use");
+	attrib.SetCustom("description_ff2_string", "banner speed ammo");
 	attrib.Register();
 
 	attrib.SetName("add damagetype");
@@ -58,13 +58,13 @@ void CustomAttrib_AllPluginsLoaded()
 	attrib.SetName("wall climb");
 	attrib.SetClass("arclight.wallclimbhealth");
 	attrib.SetDescriptionFormat("additive");
-	attrib.SetCustom("description_ff2_string", "Able to climb walls but consumes %s health");
+	attrib.SetCustom("description_ff2_string", "Climb walls by hitting them, costing %s health");
 	attrib.Register();
 
 	attrib.SetName("wall climb limit");
 	attrib.SetClass("arclight.wallclimblimit");
 	attrib.SetDescriptionFormat("additive");
-	attrib.SetCustom("description_ff2_string", "Can climb %s times before touching the ground");
+	attrib.SetCustom("description_ff2_string", "Max wall climbs before landing: %s");
 	attrib.Register();
 
 	attrib.SetName("wall climb height");
@@ -82,7 +82,7 @@ void CustomAttrib_AllPluginsLoaded()
 	attrib.SetName("projectile explodes");
 	attrib.SetClass("arclight.projectileexplodes");
 	attrib.SetDescriptionFormat("additive");
-	attrib.SetCustom("description_ff2_string", "Projectile explodes dealing %s damage");
+	attrib.SetCustom("description_ff2_string", "Projectile explodes on impact for up to %s damage");
 	attrib.Register();
 
 	attrib.SetName("heal on any hit");
@@ -100,13 +100,13 @@ void CustomAttrib_AllPluginsLoaded()
 	attrib.SetName("mod scattergun hit stale");
 	attrib.SetClass("arclight.stale_boss_hit_scattergun");
 	attrib.SetDescriptionFormat("additive");
-	attrib.SetCustom("description_ff2_string", "Successive hits on a boss decreases knockback power");
+	attrib.SetCustom("description_ff2_string", "Successive hits on a boss decrease knockback power");
 	attrib.Register();
 
 	attrib.SetName("mod airblast any stale");
 	attrib.SetClass("arclight.stale_any_airblast_refire");
 	attrib.SetDescriptionFormat("additive");
-	attrib.SetCustom("description_ff2_string", "Successive airblasts increases airblast cooldown");
+	attrib.SetCustom("description_ff2_string", "Successive airblasts increase airblast cooldown");
 	attrib.Register();
 
 	attrib.SetName("hand scale instant");
@@ -130,7 +130,7 @@ void CustomAttrib_AllPluginsLoaded()
 	attrib.SetName("mod metal ball altfire");
 	attrib.SetClass("arclight.gordonar");
 	attrib.SetDescriptionFormat("additive");
-	attrib.SetCustom("description_ff2_string", "Alt-Fire: Launches a energy ball. Costs %s metal.");
+	attrib.SetCustom("description_ff2_string", "Alt-Fire: Launches an energy ball. Costs %s metal.");
 	attrib.Register();
 
 	attrib.SetClass("arclight.displayonly");

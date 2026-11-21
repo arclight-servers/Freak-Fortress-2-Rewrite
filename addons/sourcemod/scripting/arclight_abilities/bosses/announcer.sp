@@ -116,7 +116,7 @@ static Action AnnouncerSwapTimer(Handle timer, int client)
 				return Plugin_Continue;
 			}
 
-			PrintCenterText(client, "YOU'RE NOW IN BOSS TEAM");
+			PrintCenterText(client, "YOU'RE NOW ON THE BOSS TEAM");
 			
 			int team = ConvertPack[client].ReadCell();
 			
@@ -129,7 +129,7 @@ static Action AnnouncerSwapTimer(Handle timer, int client)
 					TF2_SetBuildingTeam(entity, team);
 			}
 			
-			PrintCenterText(client, "YOU'RE NOW IN BOSS TEAM");
+			PrintCenterText(client, "YOU'RE NOW ON THE BOSS TEAM");
 			
 			SetEntProp(client, Prop_Send, "m_lifeState", 2);
 			ChangeClientTeam(client, team);
