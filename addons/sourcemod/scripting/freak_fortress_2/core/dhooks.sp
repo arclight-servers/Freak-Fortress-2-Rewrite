@@ -126,7 +126,6 @@ static DynamicDetour CreateDetour(GameData gamedata, const char[] name, DHookCal
 		if(postCallback != INVALID_FUNCTION && !detour.Enable(Hook_Post, postCallback))
 			LogError("[Gamedata] Failed to enable post detour: %s", name);
 		
-		delete detour;
 	}
 	else if(!noError)
 	{

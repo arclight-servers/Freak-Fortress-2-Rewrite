@@ -404,8 +404,6 @@ void CreateDetour(GameData gamedata, const char[] name, DHookCallback preCallbac
 #endif
 		if(postCallback != INVALID_FUNCTION && !detour.Enable(Hook_Post, postCallback))
 			LogError("[Gamedata] Failed to enable post detour: %s", name);
-		
-		delete detour;
 	}
 	else
 	{
