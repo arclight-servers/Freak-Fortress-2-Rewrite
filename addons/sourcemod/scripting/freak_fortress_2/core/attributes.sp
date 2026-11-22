@@ -517,7 +517,10 @@ void Attributes_OnHitBoss(int attacker, int victim, int inflictor, float fdamage
 		value = Attrib_FindOnWeapon(attacker, weapon, "speed_boost_on_kill", 736);
 		if(value)
 			TF2Tools_AddCondition(attacker, TFCond_SpeedBuffAlly, value);
-		
+
+		if(damagecustom == TF_CUSTOM_AXTINGUISHER_BOOSTED)
+			TF2Tools_AddCondition(attacker, TFCond_SpeedBuffAlly, 3.0);
+
 		if(Attrib_FindOnWeapon(attacker, weapon, "add_head_on_kill", 807))
 			SetEntProp(attacker, Prop_Send, "m_iDecapitations", GetEntProp(attacker, Prop_Send, "m_iDecapitations")+1);
 		
