@@ -533,8 +533,23 @@ void Attributes_OnHitBoss(int attacker, int victim, int inflictor, float fdamage
 	{
 		if(slot == TFWeaponSlot_Building)
 		{
-			if(inflictor != -1 && GetEntityClassname(inflictor, classname, sizeof(classname)) && !StrContains(classname, "obj_sentrygun"))
-				SetEntProp(inflictor, Prop_Send, "m_iKills", GetEntProp(inflictor, Prop_Send, "m_iKills") + 1);
+			int sentry = -1;
+			if(inflictor != -1 && GetEntityClassname(inflictor, classname, sizeof(classname)))
+			{
+				if(!StrContains(classname, "obj_sentrygun"))
+				{
+					sentry = inflictor;
+				}
+				else if(StrEqual(classname, "tf_projectile_sentryrocket"))
+				{
+					int owner = GetEntPropEnt(inflictor, Prop_Send, "m_hOwnerEntity");
+					if(owner != -1 && GetEntityClassname(owner, classname, sizeof(classname)) && !StrContains(classname, "obj_sentrygun"))
+						sentry = owner;
+				}
+			}
+
+			if(sentry != -1)
+				SetEntProp(sentry, Prop_Send, "m_iKills", GetEntProp(sentry, Prop_Send, "m_iKills") + amount);
 			
 			weapon = GetPlayerWeaponSlot(attacker, TFWeaponSlot_Grenade);
 			slot = TFWeaponSlot_Grenade;
