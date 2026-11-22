@@ -1005,7 +1005,17 @@
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
 		"en"		"100%% mini-crits"
 	}
+	"mod crit type glow 2"
+	{
+		"#format"	"{1:s},{2:s},{3:s},{4:s}"
+		"en"		"100%% critical hit"
+	}
 	"mod crit type on bosses"
+	{
+		"#format"	"{1:s},{2:s},{3:s},{4:s}"
+		"en"		"100%% mini-crits vs bosses"
+	}
+	"mod crit type on bosses 2"
 	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
 		"en"		"100%% critical hit vs bosses"

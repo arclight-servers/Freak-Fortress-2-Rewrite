@@ -280,6 +280,10 @@ static void PrintThisAttrib(int client, int attrib, char value[128], char type[6
 				
 				if(TranslationPhraseExists(desc))
 				{
+					Format(type, sizeof(type), "%s %s", desc, value);
+					if(TranslationPhraseExists(type))
+						strcopy(desc, sizeof(desc), type);
+
 					FormatValue(value, buffer2, sizeof(buffer2), "value_is_percentage");
 					FormatValue(value, key, length, "value_is_inverted_percentage");
 					FormatValue(value, type, sizeof(type), "value_is_additive_percentage");
