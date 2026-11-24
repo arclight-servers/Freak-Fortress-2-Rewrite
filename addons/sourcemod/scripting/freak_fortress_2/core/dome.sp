@@ -17,7 +17,6 @@
 
 static const char Downloads[][] =
 {
-	"models/kirillian/brsphere_huge.dx80.vtx",
 	"models/kirillian/brsphere_huge.dx90.vtx",
 	"models/kirillian/brsphere_huge.mdl",
 	"models/kirillian/brsphere_huge.vvd",
